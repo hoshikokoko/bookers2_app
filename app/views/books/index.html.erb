@@ -1,0 +1,43 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-3">
+      <h2>User info</h1>
+      <h2>New book</h2>
+        <%= form_with model: @book do |f| %>
+        <div class= "book-form">
+          <div class= "form-box">
+            <p>Title</p>
+            <%= f.text_field :title %>
+           </div>
+          <div class= "form-box">
+            <p>Opinion</p>
+            <%= f.text_area :body %>
+          </div>
+          <div class= "form-box"><%= f.submit 'Create Book' %></div>
+        </div>
+        <% end %>
+    </div>
+    <div class="col-md-8 offset-md-1">
+      <h2>Books</h1>
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th scope="col"></th>
+            <th scope="col">Title</th>
+            <th scope="col">Opinion</th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+          
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

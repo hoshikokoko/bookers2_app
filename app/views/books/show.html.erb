@@ -22,12 +22,12 @@
             <td><%= @book.body %></td>
             <td>
               <% if @book.user == current_user %>
-                <%= link_to "編集", edit_book_path(@book.id) %>
+                <%= link_to "Edit", edit_book_path(@book.id), class: "btn btn-success" %>
               <% end %>
             </td>
             <td>
               <% if @book.user == current_user %>
-                <%= link_to "削除", book_path(@book.id), method: :delete %>
+                <%= link_to "Destroy", book_path(@book.id), class: "btn btn-danger",data: { confirm: "本当に消しますか？" }, method: :delete %>
               <% end %>
             </td>
           </tr>

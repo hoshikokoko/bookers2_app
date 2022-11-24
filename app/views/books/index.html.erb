@@ -1,7 +1,14 @@
 <div class="container">
-    <div>
-
-    </div>
+  <div>
+    <% if @booknew.errors.any? %>
+    <div class= "error-title"><%= @booknew.errors.count %>errors prohibited this book from being saved</div>
+     <ul class= "rror-messages" >
+      <% @booknew.errors.full_messages.each do |message|%>
+       <li class= "error-message"><%= message %></li>
+      <% end %>
+     </ul>
+    <% end %>
+  </div>
   <div class="row">
     <%= render 'books/form', booknew: @booknew, booker: @booker %>
     <div class="col-md-8 offset-md-1">

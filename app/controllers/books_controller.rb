@@ -1,19 +1,22 @@
 class BooksController < ApplicationController
   
+  before_action :is_matching_login_user, only: [:edit, :updat ]
   
   def index
+    @booknew = Book.all
     @booknew = Book.new
     @booker = current_user
     @books = Book.all
   end
   
   def create
-    @book = Book.new(book_params)
-    @book.user_id = current_user.id
-    if @book.save
+    @booknew = Book.new(book_params)
+    @booknew.user_id = current_user.id
+    if @booknew.save
       flash[:notice] = "You have created book successfully!"
-      redirect_to book_path(@book.id)
+      redirect_to book_path(@booknew.id)
     else
+      @booker = current_user
       @books = Book.all
       render :index
     end
